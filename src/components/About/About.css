@@ -1,0 +1,40 @@
+#Header {
+  font-family: sans-serif;  
+  width: 100%;  
+  background-color: var(--chakra-colors-white);
+  border-bottom: solid 1px #1C1C1C;
+  position: fixed;
+  z-index: 10;
+}
+
+.sort{
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-wrapper{
+  align-items: center;
+  max-width: 1200px;
+  height: inherit;
+  margin: auto;
+  height: 75px;
+  padding: 25px 0;
+}
+
+.home {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.divide {
+  flex: 1 0 auto;
+}
+
+.menu-option {
+
+}
+
+.menu-option span{
+  font-size: 1.5rem;
+  margin-right: 20px;
+}

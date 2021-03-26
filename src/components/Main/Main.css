@@ -1,0 +1,62 @@
+.wrap-articles{
+  padding-top: 76px;    
+  height: 100px;
+  font-family: Nanum Gothic;
+}
+
+.articles{  
+  margin: auto;
+  width: 800px;
+}
+
+.articles li{
+  padding: 20px 0px;
+  border-bottom: solid 1px var(--chakra-colors-gray-200);
+  list-style: none;
+}
+
+.article-content{  
+  display: inline-flex;
+  padding: 10px 0px;
+  width: 100%;
+  justify-content: center;
+}
+
+.article-content .left-width{
+  width: 650px;
+  padding-right: 20px;
+}
+
+.article-content .article-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.article-content .article-text{
+  color: var(--chakra-colors-blackAlpha-600);
+}
+
+.article-content .article-info{
+  padding-top: 10px;
+}
+
+.article-content .article-info .label .chakra-badge{
+  margin-right: 5px; 
+}
+
+.article-content .img-content{
+  display: flex;
+  align-items: center;  
+  max-width: 120px;
+  max-height: 120px;
+}
+.article-content .article-info .img-content img{
+  border-radius: 8px;
+}
+
+.article-content .article-info .date{
+  float: right;
+  padding-right: 15px;
+  color : var(--chakra-colors-gray-600)
+}
