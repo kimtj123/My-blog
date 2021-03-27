@@ -24,7 +24,7 @@ function Main() {
       text : "나에겐 3개의 블로그가 있다. - 맛집, 카페 등 나의 느낀 점을 쓰는 네이버 블로그 - 공부한 분야를 제 3자에게 알려주기 위한 브런치 - 관심 분야 인사이트 공유하는 워드프레스 블로그   나의 느낀점을 쓰는 네이버 블로그   2015년 12월 25일 시작한 내 최초의 블로그다. 목적은 맛집 탐방. 맛있는 음식을 걱정 없이 먹고 싶었던 나는 '네이버 블로",
       label : ["여행", "일상"],
       date : "2021-01-01",
-      image : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/ProgramCallStack2_en.png/350px-ProgramCallStack2_en.png"
+      image : ""
     },
   ]  
 
@@ -48,7 +48,11 @@ function Main() {
                       </div>
                     </div>
                     <div className="img-content">
-                      <img src={info.image}></img>
+                      {
+                        info.image.length !== 0 ? 
+                        <img src={info.image}></img> : 
+                        <div className="no-image">no-image</div>
+                      }                      
                     </div>
                   </div>
                 </div>

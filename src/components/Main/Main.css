@@ -48,11 +48,18 @@
 .article-content .img-content{
   display: flex;
   align-items: center;  
-  max-width: 120px;
-  max-height: 120px;
+  width: 120px;
+  height: 120px;
 }
-.article-content .article-info .img-content img{
+.article-content .img-content img{
   border-radius: 8px;
+}
+
+.article-content .img-content .no-image{
+  width: 100%;
+  text-align: center;
+  color: var(--chakra-colors-blackAlpha-500);
+  font-size: 1.3rem;
 }
 
 .article-content .article-info .date{

@@ -1,40 +1,154 @@
-#Header {
-  font-family: sans-serif;  
-  width: 100%;  
-  background-color: var(--chakra-colors-white);
-  border-bottom: solid 1px #1C1C1C;
-  position: fixed;
-  z-index: 10;
-}
-
-.sort{
+#About {
+  background-image: url("../img/windows_bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: row;
-}
-
-.menu-wrapper{
   align-items: center;
-  max-width: 1200px;
-  height: inherit;
-  margin: auto;
-  height: 75px;
-  padding: 25px 0;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: Segoe UI !important;
 }
 
-.home {
-    font-size: 3rem;
-    font-weight: bold;
+#introduce-myself{
+  border: solid var(--chakra-colors-blackAlpha-700) 1px;
+  width: 382px;
+  height: 498px;
+  background-color: var(--chakra-colors-gray-100);
 }
 
-.divide {
+.about-header{
+  display: flex;
+  width: 100%;
+  height: 29px;
+  background-color: var(--chakra-colors-white);
+}
+
+.about-header .header-left{
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.about-header .header-left .header-icon{
+  background-image: url("../img/favicon.ico");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 14px;
+}
+
+.about-header .header-left .header-name{
+  margin-left: 8px;
+}
+
+.about-header .header-divide{
   flex: 1 0 auto;
 }
 
-.menu-option {
-
+.about-header .header-right{
+  padding-right: 9px;
+  display: flex;
+  align-items: center;
 }
 
-.menu-option span{
-  font-size: 1.5rem;
-  margin-right: 20px;
+.about-header .header-right .close-icon{
+  background-image:url("../img/cancel.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+}
+
+.about-body{
+  /* border: solid var(--chakra-colors-gray-300) 1px; */
+  border-top: none;
+  width: calc(100% - 14px);
+  height: 416px;
+  margin: 10px auto 0px auto;
+}
+
+.about-body .wrap-tabs{
+  display: flex;
+  height: 24px;
+}
+
+/* .about-body .wrap-tabs .tab{
+  padding-left: 5px;
+  padding-right: 20px;  
+} */
+
+
+.first-tab{
+  background-color: var(--chakra-colors-white);
+  border: solid 1px var(--chakra-colors-gray-300);
+  border-bottom: none;
+}
+.about-body .wrap-tabs .tab .tab-name{
+  height: 22px;
+  line-height: 22px;
+  padding-left: 5px;
+  padding-right: 16px;
+  margin-top: 2px;
+  border: solid 1px var(--chakra-colors-gray-300);  
+  border-left: none;
+  font-size: 0.9rem;
+}
+
+.about-body .wrap-tabs .tab .tab-name.selected{
+  background-color: var(--chakra-colors-white);
+  margin-top: 0px;
+  border: none;
+}
+
+.about-body .wrap-tabs .tab .tab-name.adjust{
+  padding-right: 5px;
+}
+
+.about-body .wrap-tabs .tab .tab-name.adjust2{
+  width: 68px;
+  padding-right: 3px;
+  text-align: right;  
+}
+
+.about-body .wrap-tabs .tab-blank{
+  flex: 1 0 auto;
+  border-bottom: solid 1px var(--chakra-colors-gray-300);
+}
+
+.about-body .wrap-props{
+  background-color: var(--chakra-colors-white);
+  border: solid 1px var(--chakra-colors-gray-300);
+  border-top: none;
+  height: 395px;
+}
+
+.about-footer{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 7px;
+}
+
+.about-footer .button{
+  width: 77.5px;
+  height: 22px;
+  margin-left: 8px;
+  background-color: #E1E1E1;
+  border: solid 1px var(--chakra-colors-gray-400);
+  text-align: center;  
+  display: flex;
+  align-items: center;    
+  font-size: 0.9rem;
+  justify-content: center;
+}
+
+.about-footer .button.last {
+  background-color: #CCCCCC;
+  color: #909DB4;
 }
