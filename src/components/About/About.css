@@ -47,10 +47,6 @@
   margin-left: 8px;
 }
 
-.about-header .header-divide{
-  flex: 1 0 auto;
-}
-
 .about-header .header-right{
   padding-right: 9px;
   display: flex;
@@ -116,8 +112,7 @@
   text-align: right;  
 }
 
-.about-body .wrap-tabs .tab-blank{
-  flex: 1 0 auto;
+.about-body .wrap-tabs .tab-blank{  
   border-bottom: solid 1px var(--chakra-colors-gray-300);
 }
 
@@ -125,7 +120,42 @@
   background-color: var(--chakra-colors-white);
   border: solid 1px var(--chakra-colors-gray-300);
   border-top: none;
-  height: 395px;
+  height: 395px;  
+  font-size: 0.9rem;
+}
+
+.about-body .wrap-props .props-section{
+  display: flex;  
+  padding: 0px 11px 0px 10px;
+}
+.about-body .wrap-props .props-section.first-section{
+  padding: 13px 11px 11px 10px;
+}
+
+.about-body .wrap-props .props-section .file-icon{
+  /* background-image: url("../img/favicon.ico"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 23px;
+}
+
+.about-body .wrap-props .props-section .file-input{
+  width: 260px;
+  border: solid 1px var(--chakra-colors-gray-300);
+}
+
+.about-body .wrap-props .props-section .wrap-keyVal{
+  display: flex;
+  height: 27px;
+}
+
+.about-body .wrap-props .props-section .wrap-keyVal .key{
+  width: 78px;
+}
+.about-body .wrap-props .props-section .wrap-keyVal .value{
+  display: flex;
+  width: 300px;  
 }
 
 .about-footer{
@@ -135,7 +165,18 @@
   margin-right: 7px;
 }
 
-.about-footer .button{
+.about-footer .button.last {
+  background-color: #CCCCCC;
+  color: #909DB4;
+}
+
+.seperation{
+  flex: 1 0 auto;
+}
+
+/* 버튼 */
+
+.button{
   width: 77.5px;
   height: 22px;
   margin-left: 8px;
@@ -148,7 +189,25 @@
   justify-content: center;
 }
 
-.about-footer .button.last {
-  background-color: #CCCCCC;
-  color: #909DB4;
+
+/* 체크박스 */
+.chakra-checkbox__control{
+  border: solid 1px var(--chakra-colors-black) !important;
+  font-size: 0.9rem;
+}
+.chakra-checkbox {
+  margin-right: 10px;
+}
+.chakra-checkbox__label{
+  font-size: 0.9rem !important;
+  margin-left: 3px !important;
+}
+
+/* Divider */
+hr{
+  width: 340px;
+  margin-left: 10px !important;
+  border-color: var(--chakra-colors-blackAlpha-500);
+  padding: 0px 0px 11px 0px;
+
 }
