@@ -4,24 +4,24 @@ import  AboutProperties  from './About-properties'
 import { blogInfo } from './AboutBasicData'
 
 
-type BlogInfo ={
-  kinds: string[];
-  path: string[];
-  stacks: string[];
-  content: Array<string>;
-  date: Array<string>;
+type State = {
+  blogInfo:{
+    kinds: string[];
+    path: string[];
+    stacks: string[];
+    content: Array<string>;
+    date: Array<string>;
+  }
 }
 type Props = {info:number}
-type State = {
-  ct: number
-}
-
 
 class About extends React.Component <Props, State>{
+  state: State;
+
   constructor(props:any) {
     super(props);
     this.state = {
-      ct: 1
+      blogInfo: blogInfo,      
     };    
   }
   // state: State ={
@@ -37,7 +37,7 @@ class About extends React.Component <Props, State>{
       <div className="file-row">
         <div className="file"> </div>
       </div>
-      <AboutProperties info = {this.state.ct}/>
+      <AboutProperties info = {blogInfo}/>
     </div>
   );}
 }

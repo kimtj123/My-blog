@@ -1,27 +1,19 @@
 import React from 'react';
 import './About.css';
 
-import { blogInfo } from './AboutBasicData'
-
 import { CloseIcon } from '@chakra-ui/icons'
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react"
 
+type Info = {
+    [prop: string]: any;
+}
 
-class AboutProperties extends React.Component {
-  constructor(props:any) {
-    super(props);
-    this.state = {
-      name: props.name
-    };
-  }
-
-  render(){
+function AboutProperties(info: Info) {
     const tempImg = {
-      backgroundImage: `url("/static/media/favicon.635626c1.ico")`
-    }
+        backgroundImage: `url("/static/media/favicon.635626c1.ico")`
+      }
 
-    return (
-        <div id="introduce-myself">
+        return (<div id="introduce-myself">
             <div className="about-header">
             <div className="header-left">
                 <div className="header-icon"></div>
@@ -49,12 +41,12 @@ class AboutProperties extends React.Component {
                 <div className="props-section">
                 <div>
                     {
-                    Object.keys(blogInfo).map((key) => {
+                    Object.keys(info.info).map((key) => {
                         if(key !== "date")
                         return (
                         <div className="wrap-keyVal">
-                        <div className="key">{blogInfo[key as keyof typeof blogInfo][0]}:</div>
-                        <div className="value">{blogInfo[key as keyof typeof blogInfo][1]}</div>
+                        <div className="key">{info.info[key as keyof typeof info.info][0]}:</div>
+                        <div className="value">{info.info[key as keyof typeof info.info][1]}</div>
                         </div>
                         )
                     })
@@ -64,8 +56,8 @@ class AboutProperties extends React.Component {
                 <hr />
                 <div className="props-section">
                 <div className="wrap-keyVal">
-                    <div className="key">{blogInfo.date[0]}:</div>
-                    <div className="value">{blogInfo.date[1]}</div>
+                    <div className="key">{info.info.date[0]}:</div>
+                    <div className="value">{info.info.date[1]}</div>
                 </div>
                 </div>
                 <hr />
@@ -86,8 +78,7 @@ class AboutProperties extends React.Component {
             <div className ="button">취소</div>
             <div className ="button last">적용</div>
             </div>
-        </div>
-  );}
+        </div>)
 }
 
 export default AboutProperties;

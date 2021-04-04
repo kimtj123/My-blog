@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useRef, useState, useMemo, useCallback } from 'react';
 import './Header.css';
 
 import { Link, Route, BrowserRouter as Router } from "react-router-dom"
-
-// import { Main } from '../Main/Main'
 
 function Header() {
   return (
@@ -14,7 +12,7 @@ function Header() {
         <div className="menu-option">
           <Link to="/"><span>posts</span></Link>
           <Link to="/about"><span>about</span></Link>
-          <Link to="/projects"><span>projects</span></Link>
+          <Link to="/projects"><span>projects</span></Link>          
         </div>
       </div>
     </nav>

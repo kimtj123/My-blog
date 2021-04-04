@@ -1,0 +1,74 @@
+#write {
+  padding-top: 76px;
+  /* height: 100px; */
+  font-family: Nanum Gothic;
+}
+
+.write-wrapper{
+  height: 100%;  
+}
+
+.write-content{
+  width: 700px;
+  height: calc(100vh - 80px);
+  padding: 50px 0px;
+  margin: auto;
+}
+
+.write-content .write-content-border{
+  background: var(--chakra-colors-white);
+  border: solid 1px var(--chakra-colors-blackAlpha-300);  
+}
+
+.write-content .write-title{
+  background: var(--chakra-colors-white);
+  padding: 60px 40px 30px 40px;
+  height: 140px;
+  font-size: 2.5rem;
+  margin: auto;
+}
+
+.write-content .write-title input{
+  width: 100%;
+}
+
+.write-content .write-text{  
+  padding: 30px 40px;
+  height: 800px;
+  font-size: 1.2rem;
+  margin: auto;
+}
+
+.write-content .write-text .textarea{
+  width: 100%;
+  min-height: 600px;
+}
+
+.write-content .write-label{  
+  padding: 10px 40px;  
+  height: 60px;
+}
+
+.write-border{
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 350px);
+  width: 700px;
+  height: calc(100vh - 200px);  
+  border: solid 1px var(--chakra-colors-blackAlpha-300);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.write-outside{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 1200px;
+  background: var(--chakra-colors-gray-200);
+  z-index: -2;
+}
