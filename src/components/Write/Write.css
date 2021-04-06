@@ -30,6 +30,7 @@
 
 .write-content .write-title input{
   width: 100%;
+  padding: 5px 10px;
 }
 
 .write-content .write-text{  
@@ -43,6 +44,7 @@
   width: 100%;
   min-height: 600px;
   height: 100%;
+  padding: 15px 10px;
 }
 
 .write-content .write-footer{  
