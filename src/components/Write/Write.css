@@ -17,7 +17,7 @@
 
 .write-content .write-content-border{
   background: var(--chakra-colors-white);
-  border: solid 1px var(--chakra-colors-blackAlpha-300);  
+  border: solid 1px var(--chakra-colors-blackAlpha-300);
 }
 
 .write-content .write-title{
@@ -31,6 +31,7 @@
 .write-content .write-title input{
   width: 100%;
   padding: 5px 10px;
+  box-sizing: border-box;
 }
 
 .write-content .write-text{  
@@ -38,6 +39,13 @@
   height: 800px;
   font-size: 1.2rem;
   margin: auto;
+  box-sizing: border-box;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  color: var(--chakra-colors-gray-300);
+  display: block; /* For Firefox */
 }
 
 .write-content .write-text .textarea{
@@ -51,6 +59,7 @@
   padding: 10px 40px;  
   height: 60px;
   display: flex;
+  box-sizing: border-box;
 }
 
 .write-content .write-footer input{
