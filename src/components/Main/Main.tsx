@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Link } from "react-router-dom"
 import './Main.css';
 import { Badge } from "@chakra-ui/react"
 import { firestore } from "../../firebase.js";
+import Post from "./post/post"
 
 interface objType {  
   [key: string]: any;
 }
 
-function Main() {  
-
+function Main(prop: any) {  
+  console.log("prop :: ", prop);
   let db = firestore.collection("articles").doc("articles")
   const [datas, setDatas] = useState<objType | undefined>();
 
@@ -22,8 +24,7 @@ function Main() {
       } else {
         console.error("Failed To Load Data From FireBase");
       }
-    })
-    console.log(datas);
+    })    
     console.log("If you show this message more than twice, you pay to Google More than you need");
   })  
 
@@ -38,14 +39,14 @@ function Main() {
   }
 
   const renderContents = () => {
-
     if(datas){
-      return (datas.articles.map((data: objType, index: number) => {
-        // let THIS: any = this;        
-        console.log(data.thumbnail);
+      return (datas.articles.map((data: objType, index: number) => {        
         return(
         <li key={index}>
-          <a>
+          <Link to={{
+            pathname: `/post/${data.title}`,
+            state: data
+          }}>
             <div className="wrap-content">
               <div className="article-content">
                 <div className="left-width">
@@ -56,20 +57,20 @@ function Main() {
                       {
                         data.labels.map((label:objType) => {
                           return <Badge colorScheme={label.theme} fontSize="1rem">{label.value}</Badge>
-                        })                        
+                        })
                       }
                     </span>
                     <span className="date">{data.date}</span>
                   </div>
                 </div>
                 <div className="img-content" id={data.id}>
-                  {                                                                    
+                  {
                     imgRendering(data.thumbnail, data.id)
                   }
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
         )})
       )

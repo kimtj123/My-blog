@@ -1,0 +1,121 @@
+#post {
+    padding-top: 76px;
+    /* height: 100px; */
+    font-family: Nanum Gothic;
+  }
+  
+  .post-wrapper{
+    height: 100%;  
+  }
+  
+  .post-content{
+    width: 700px;
+    height: calc(100vh - 80px);
+    padding: 50px 0px;
+    margin: auto;
+  }
+  
+  .post-content .post-content-border{
+    background: var(--chakra-colors-white);
+    border: solid 1px var(--chakra-colors-blackAlpha-300);
+  }
+  
+  .post-content .post-title{
+    background: var(--chakra-colors-white);
+    padding: 60px 40px 30px 40px;
+    height: 140px;
+    font-size: 2.5rem;
+    margin: auto;
+  }
+  
+  .post-content .post-title .title{
+    text-align: center;
+  }
+  
+  .post-content .post-title .date{
+    text-align: right;
+    font-size: 1.1rem;
+    padding-top: 15px;
+  }
+
+  .post-content .post-text{  
+    padding: 10px 40px 30px 40px;
+    height: 800px;
+    font-size: 1.2rem;
+    margin: auto;
+    box-sizing: border-box;
+  }
+  
+  [contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: var(--chakra-colors-gray-300);
+    display: block; /* For Firefox */
+  }
+  
+  .post-content .post-text .textarea{
+    width: 100%;
+    min-height: 600px;
+    height: 100%;
+    padding: 15px 10px;
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .post-content .post-text .textarea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+  .post-content .post-footer{  
+    padding: 10px 40px;  
+    height: 60px;
+    display: flex;
+    box-sizing: border-box;
+  }
+  
+  .post-content .post-footer input{
+    width: 30%;
+    padding: 5px 10px;
+  }
+  
+  .post-content .post-footer .labels-wrapper{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    padding: 5px 10px;
+  }
+  
+  .post-content .post-footer .labels-wrapper .chakra-badge{
+    margin-right: 4px;
+  }
+  
+  .post-content .post-footer .labels-wrapper .chakra-badge:hover{
+    opacity: 0.7;
+  }
+  
+  .post-content .post-footer .btn-wrapper{
+    width: 20%;
+    min-width: 50px;
+    text-align: right;
+  }
+  .post-border{
+    position: absolute;
+    top: calc(50% - 40px);
+    left: calc(50% - 350px);
+    width: 700px;
+    height: calc(100vh - 200px);  
+    border: solid 1px var(--chakra-colors-blackAlpha-300);
+    border-radius: 4px;
+    z-index: -1;
+  }
+  
+  .post-outside{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    height: 1200px;
+    background: var(--chakra-colors-gray-200);
+    z-index: -2;
+  }
