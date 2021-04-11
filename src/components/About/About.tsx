@@ -24,14 +24,8 @@ class About extends React.Component <Props, State>{
       blogInfo: blogInfo,      
     };    
   }
-  // state: State ={
-  //   blogInfos: blogInfo
-  // }
+  
   render(){
-    const tempImg = {
-      backgroundImage: `url("/static/media/favicon.635626c1.ico")`
-    }
-
     return (
     <div id="About">
       <div className="file-row">

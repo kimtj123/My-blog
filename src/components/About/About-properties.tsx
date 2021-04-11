@@ -2,7 +2,7 @@ import React from 'react';
 import './About.css';
 
 import { CloseIcon } from '@chakra-ui/icons'
-import { Checkbox, CheckboxGroup } from "@chakra-ui/react"
+import { Checkbox } from "@chakra-ui/react"
 
 type Info = {
     [prop: string]: any;
@@ -42,13 +42,14 @@ function AboutProperties(info: Info) {
                 <div>
                     {
                     Object.keys(info.info).map((key) => {
-                        if(key !== "date")
-                        return (
-                        <div className="wrap-keyVal">
-                        <div className="key">{info.info[key as keyof typeof info.info][0]}:</div>
-                        <div className="value">{info.info[key as keyof typeof info.info][1]}</div>
-                        </div>
-                        )
+                        if(key !== "date"){
+                            return (
+                            <div className="wrap-keyVal">
+                            <div className="key">{info.info[key as keyof typeof info.info][0]}:</div>
+                            <div className="value">{info.info[key as keyof typeof info.info][1]}</div>
+                            </div>
+                            )
+                        }
                     })
                     }
                 </div>

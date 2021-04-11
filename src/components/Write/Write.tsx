@@ -1,12 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import './Write.css';
 import { Button } from "@chakra-ui/react"
 import { Badge } from "@chakra-ui/react"
-import {toBase64, Base64ToImage} from "../../utils/base64";
+import { toBase64, Base64ToImage } from "../../utils/base64";
 
 import { firestore } from "../../firebase.js";
 import { v4 as uuidv4 } from 'uuid';
-import { Checkbox ,Radio, RadioGroup, Stack } from "@chakra-ui/react"
+import firebase from 'firebase';
 
 const labelColors = ["blue", "cyan", "gray", "green", "orange", "pink", "purple", "red", "teal", "yellow", "whiteAlpha", "blackAlpha", "linkedin", "facebook", "messenger", "whatsapp", "twitter", "telegram"];
 
@@ -14,15 +15,15 @@ interface strObj {
   [key: string]: string;
 }
 
-function Write() {
+function Write(props: RouteComponentProps) {  
   let [title, setTitle] = useState<string>("");
-  let [thumbnail, setThumbnail] = useState<HTMLImageElement | undefined>();
   let [labels, setLabels] = useState<any>([]);
   let [curLabel, setCurLabel] = useState<any>("");
+  let [thumbnail, setThumbnail] = useState<string | null>(null);
   let [labelTheme, setLabelTheme] = useState<any>([]);
 
   const changeLabel = (e: any) => {    
-    const { name, value } = e.target
+    const { value } = e.target
     let labelInfo = {
       theme: "",
       value: value
@@ -30,8 +31,8 @@ function Write() {
     setCurLabel(labelInfo);        
   }
   
-  const addLabel = (e: any) => {
-    let randomIdx: number = Math.floor(Math.random() * 18);
+  const addLabel = () => {
+    let randomIdx: number = Math.floor(Math.random() * labelColors.length);
     let newTheme: string = labelColors[randomIdx];
     let oldLabels: string[] = [];
     let labelInfo: strObj = {
@@ -62,10 +63,23 @@ function Write() {
     setLabelTheme([...labelTheme, newTheme]);
   }
 
+  const removeLabel = (e: any) => {
+    const { textContent } = e.target
+    const copyLabels = [...labels];
+    
+    copyLabels.forEach((label, i) => {
+      if(label.value === textContent){
+        copyLabels.splice(i,1);
+      }
+    })
+
+    setLabels(copyLabels);    
+  }
+
   const renderLabel = () => {    
     return labels.map(
       (label: any, idx: number) => {
-        return <Badge colorScheme={label.theme} key={`label-${idx}`} fontSize="1em">{label.value}</Badge>;
+        return <Badge onClick={removeLabel} colorScheme={label.theme} key={`label-${idx}`} fontSize="1em">{label.value}</Badge>;
       }
     )
   }
@@ -92,26 +106,58 @@ function Write() {
     }
   }
 
-  const chkPost = () => {
-    let text: string = document.getElementsByClassName("textarea input-border")[0].innerHTML;
-    let articleID: string = uuidv4();
-    let date = new Date()
-    let month = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
-    let dateForm = `${date.getFullYear()}-${month}-${date.getDate()}`
+  const postArticle = () => {
+    let text: string | string[] = document.getElementsByClassName("textarea input-border")[0].innerHTML;    
+    // text.length < 300 ? text : text.substring(0,300);
+    let date: Date = new Date();
+    let month: string | number= date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
+    let dateForm: string = `${date.getFullYear()}-${month}-${date.getDate()} ${date.getHours() + 1}:${date.getMinutes() + 1}:${date.getSeconds() + 1}`
+    let id: string = uuidv4();
+
+    if(title.length === 0) {
+      alert("제목을 입력하세요.");
+      return;
+    }
+    else if(text.length === 0){
+      alert("본문내용을 입력하세요.");
+      return;
+    }
+
+    // 여유있을 때 개선
+    text = text.replaceAll("<div>", "||");
+    text = text.replaceAll("</div>", "");
+    text = text.replaceAll("<img", "||<img");
+    text = text.replaceAll("<br>", "");
+    text = text.split("||");
+
+    let textSample: string = "" ;
+
+    text.forEach((txt) => {
+      if(textSample.length < 210 && !txt.includes("img")){
+        textSample += txt;
+      }
+    })
 
     let postInfo = {
+      id: id,
+      title: title,
+      text: text,
+      textSample: textSample,
       date: dateForm,
       thumbnail: thumbnail,
-      label: labels,
-      text: text,
-      title: title
+      labels: labels,      
     }
-    
-    firestore.collection("articles").doc(articleID).set(postInfo)
+    console.log(postInfo)
+    firestore.collection("articles").doc("articles")
+    .update({
+        // Firebase 배열에 값 add
+        articles: firebase.firestore.FieldValue.arrayUnion(postInfo)
+    })
     .then(() => {
         console.log("Document successfully written!");
     })
     .catch((error) => {
+          // props.history.push("/")
         console.error("Error writing document: ", error);
     });
   
@@ -127,7 +173,7 @@ function Write() {
             </div>
             <div className="write-text">
               <div className="textarea input-border" contentEditable="true" placeholder="내용" 
-                  onDrop={(e) => onFileLoad(e)}                  
+                  onDrop={(e) => onFileLoad(e)}   
               />
             </div>
             <div className="write-footer">
@@ -137,18 +183,16 @@ function Write() {
                 value={curLabel.value} 
                 onChange={changeLabel} 
                 onKeyPress={
-                  (e) => {
-                    if(e.key === "Enter"){
-                    addLabel(e)
+                  (e) => {                                        
+                    if(e.key === "Enter" && curLabel.value.length !== 0){                      
+                      addLabel();
                     }
                   }
                 }
               />
-              <div className="labels-wrapper">
-                { renderLabel() }
-              </div>
+              <div className="labels-wrapper">{renderLabel()}</div>
               <div className="btn-wrapper">
-                <Button colorScheme="gray" variant="outline" onClick={chkPost}>저장</Button>
+                <Button colorScheme="gray" variant="outline" onClick={postArticle}>저장</Button>
               </div>
             </div>
           </div>

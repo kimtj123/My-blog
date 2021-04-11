@@ -1,7 +1,7 @@
-import React, { useRef, useState, useMemo, useCallback } from 'react';
+// import React, { useRef, useState, useMemo, useCallback } from 'react';
 import './Header.css';
 
-import { Link, Route, BrowserRouter as Router } from "react-router-dom"
+import { Link, BrowserRouter as Router } from "react-router-dom"
 
 function Header() {
   return (
@@ -12,6 +12,7 @@ function Header() {
         <div className="menu-option">
           <Link to="/"><span>posts</span></Link>
           <Link to="/about"><span>about</span></Link>
+          <Link to="/Write"><span>write</span></Link>
           <Link to="/projects"><span>projects</span></Link>          
         </div>
       </div>

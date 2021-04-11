@@ -10,6 +10,7 @@
 }
 
 .articles li{
+  height: 170px;
   padding: 20px 0px;
   border-bottom: solid 1px var(--chakra-colors-gray-200);
   list-style: none;
@@ -34,7 +35,15 @@
 }
 
 .article-content .article-text{
+  height: 55px;
   color: var(--chakra-colors-blackAlpha-600);
+  box-sizing: content-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;  
 }
 
 .article-content .article-info{
@@ -46,13 +55,17 @@
 }
 
 .article-content .img-content{
+  /* background: var(--chakra-colors-blackAlpha-50); */
+  border-radius: 8px;
   display: flex;
   align-items: center;  
   width: 120px;
   height: 120px;
 }
 .article-content .img-content img{
-  border-radius: 8px;
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;  
 }
 
 .article-content .img-content .no-image{
