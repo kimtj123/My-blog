@@ -22,6 +22,38 @@
   background-color: var(--chakra-colors-gray-100);
 }
 
+#About .file-row{
+  position: absolute;
+  top: 76px;  
+  width: 100%;
+  height: 75px;  
+  padding: 10px;
+}
+
+#About .file-row .file{
+  padding-top: 2px;
+  width: 72px;
+  height: 72px;
+  outline: none;
+}
+
+#About .file-row .file.clicked{
+  background: var(--chakra-colors-whiteAlpha-200);
+  border: solid 1px var(--chakra-colors-whiteAlpha-400);
+}
+
+#About .file-row .file-icon{
+  width: 50px;
+  height: 50px;
+  margin: auto;
+}
+
+#About .file-row .file-name{  
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 3px black;
+}
+
 .about-header{
   display: flex;
   width: 100%;
@@ -48,9 +80,12 @@
 }
 
 .about-header .header-right{
+  padding-left: 9px;
   padding-right: 9px;
+  width: 30px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .about-header .header-right .close-icon{
@@ -132,7 +167,7 @@
   padding: 13px 11px 11px 10px;
 }
 
-.about-body .wrap-props .props-section .file-icon{
+.about-body .wrap-props .props-section .props-icon{
   /* background-image: url("../img/favicon.ico"); */
   background-size: cover;
   background-repeat: no-repeat;
@@ -140,9 +175,18 @@
   height: 23px;
 }
 
-.about-body .wrap-props .props-section .file-input{
+.about-body .wrap-props .props-section .props-input{
   width: 260px;
-  border: solid 1px var(--chakra-colors-gray-300);
+  border: solid 1px var(--chakra-colors-gray-500);
+}
+
+.about-body .wrap-props .props-section input{
+  padding-left: 3px;
+  width: 100%;
+  height: 100%;  
+}
+.about-body .wrap-props .props-section input:focus{
+  outline: none;
 }
 
 .about-body .wrap-props .props-section .wrap-keyVal{
@@ -187,6 +231,7 @@
   align-items: center;    
   font-size: 0.9rem;
   justify-content: center;
+  cursor: pointer;
 }
 
 

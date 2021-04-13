@@ -8,19 +8,20 @@ type Info = {
     [prop: string]: any;
 }
 
-function AboutProperties(info: Info) {
+function AboutProperties(info: Info) {    
     const tempImg = {
         backgroundImage: `url("/static/media/favicon.635626c1.ico")`
-      }
+    }
 
-        return (<div id="introduce-myself">
+        return (
+        <div id="introduce-myself">
             <div className="about-header">
             <div className="header-left">
                 <div className="header-icon"></div>
                 <div className="header-name">TJ's Blog 속성</div>
             </div>
-            <div className="seperation" />
-            <div className="header-right"><CloseIcon w={3} h={3}/></div>
+            <div className="seperation" />            
+            <div className="header-right"><CloseIcon w={3} h={3} onClick={ info.switch }/></div>
             </div>
             <div className="about-body">
             <div className="wrap-tabs">
@@ -33,9 +34,9 @@ function AboutProperties(info: Info) {
             </div>
             <div className="wrap-props">
                 <div className="props-section first-section">
-                <div className="file-icon" style={tempImg}></div>
+                <div className="props-icon" style={tempImg}></div>
                 <div className="seperation" />
-                <div className="file-input"><input /></div>
+                <div className="props-input"><input value="Blog"/></div>
                 </div>
                 <hr />
                 <div className="props-section">
@@ -75,8 +76,8 @@ function AboutProperties(info: Info) {
             </div>          
             </div>
             <div className="about-footer">
-            <div className ="button">확인</div>
-            <div className ="button">취소</div>
+            <div className ="button" onClick={ info.switch } >확인</div>
+            <div className ="button" onClick={ info.switch }>취소</div>
             <div className ="button last">적용</div>
             </div>
         </div>)

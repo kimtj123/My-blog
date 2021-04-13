@@ -87,14 +87,11 @@
     margin-right: 4px;
   }
   
-  .post-content .post-footer .labels-wrapper .chakra-badge:hover{
-    opacity: 0.7;
-  }
-  
   .post-content .post-footer .btn-wrapper{
     width: 20%;
     min-width: 50px;
     text-align: right;
+    flex: 1 0 auto;
   }
   .post-border{
     position: absolute;

@@ -5,11 +5,11 @@ import { Button } from "@chakra-ui/react"
 import { Badge } from "@chakra-ui/react"
 import { toBase64, Base64ToImage } from "../../utils/base64";
 
-import { firestore } from "../../firebase.js";
 import { v4 as uuidv4 } from 'uuid';
 import firebase from 'firebase';
+import { firestore } from "../../firebase.js";
 
-const labelColors = ["blue", "cyan", "gray", "green", "orange", "pink", "purple", "red", "teal", "yellow", "whiteAlpha", "blackAlpha", "linkedin", "facebook", "messenger", "whatsapp", "twitter", "telegram"];
+const labelColors = ["blue", "cyan", "gray", "green", "orange", "pink", "purple", "red", "teal", "yellow", "blackAlpha", "linkedin", "facebook", "messenger", "whatsapp", "twitter", "telegram"];
 
 interface strObj {  
   [key: string]: string;
@@ -154,10 +154,10 @@ function Write(props: RouteComponentProps) {
         articles: firebase.firestore.FieldValue.arrayUnion(postInfo)
     })
     .then(() => {
+        props.history.push("/")
         console.log("Document successfully written!");
     })
     .catch((error) => {
-          // props.history.push("/")
         console.error("Error writing document: ", error);
     });
   
